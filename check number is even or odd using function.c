@@ -1,6 +1,5 @@
 
 #include <stdio.h>
-
 int isEven(int num)
 {
     return !(num & 1);
@@ -22,4 +21,5 @@ int main()
     }
     
     return 0;
+
 }
