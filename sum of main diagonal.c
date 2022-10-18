@@ -1,24 +1,32 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
 
-#define SIZE 3 
+using namespace std;
+
+inline void solve()
+{
+	int n;
+	cin >> n;
+	int permutation[n], location[n];
+	for(int i = 0; i < n; i++)
+	{
+		cin >> permutation[i];
+		permutation[i]--;
+		location[permutation[i]] = i;
+	}
+	for(int i = 0; i < n; i++)
+	{
+		if(location[i] == n-1)
+			cout << rand()%n+1 << (i == n-1?'\n':' ');
+		else
+			cout << location[i]+2 << (i == n-1?'\n':' ');
+	}
+}
 
 int main()
 {
-    int A[SIZE][SIZE];
-    int row, col, sum = 0;
-    printf("Enter elements in matrix of size %dx%d: \n", SIZE, SIZE);
-    for(row=0; row<SIZE; row++)
-    {
-        for(col=0; col<SIZE; col++)
-        {
-            scanf("%d", &A[row][col]);
-        }
-    }
-    for(row=0; row<SIZE; row++)
-    {
-        sum = sum + A[row][row];
-    }
-
-    printf("\nSum of main diagonal elements = %d", sum);
-
-    return 0;
+	int t;
+	cin >> t;
+	while(t--)
+		solve();
+	return 0;
+}
